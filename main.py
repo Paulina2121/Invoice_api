@@ -3,7 +3,7 @@ from pydantic import BaseModel
 from datetime import date as Date
 from dotenv import load_dotenv
 import os
-import database  # Your separate CSV module
+import database  # CSV or database in SQL
 
 app = FastAPI(title="Invoice DB")
 
@@ -11,7 +11,6 @@ load_dotenv(override=True)
 API_KEY = os.getenv("API_KEY")
 
 # --- SCHEMA ---
-# It's perfectly fine to keep this here since it's so small!
 class InvoiceBase(BaseModel):
     invoice_number: str
     date: Date
